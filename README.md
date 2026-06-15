@@ -73,7 +73,7 @@ CLAUDE.md            定期セッションでエージェントが行う手順
 | `BACKLOG_SPACE_URL` | ✅ | 例 `https://your-space.backlog.com`（`.jp` の場合あり） |
 | `BACKLOG_LOGIN_ID` | ✅ | Backlog ログインID/メール |
 | `BACKLOG_PASSWORD` | ✅ | パスワード |
-| `BACKLOG_TOTP_SECRET` | 2FA時 | TOTP の Base32 シークレット（2段階認証有効時のみ） |
+| `BACKLOG_TOTP_SECRET` | ✅ | TOTP の Base32 シークレット（このスペースは2要素認証が必須） |
 | `SLACK_CHANNEL_ID` | – | 既定 `C09CYQLNQNR`（#sol-prj-iibc-op） |
 | `SKIP_ON_HOLIDAY` | – | `true` で祝日（平日に当たる場合）は通知スキップ |
 | `HEADLESS` | – | 既定 `true` |

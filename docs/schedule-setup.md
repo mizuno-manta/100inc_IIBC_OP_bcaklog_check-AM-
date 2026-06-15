@@ -6,7 +6,7 @@
 ## 前提
 
 1. このリポジトリ用の**環境（Environment）**を作成し、以下を**シークレット/環境変数**として登録する。
-   - `BACKLOG_SPACE_URL` / `BACKLOG_LOGIN_ID` / `BACKLOG_PASSWORD`（2FA時 `BACKLOG_TOTP_SECRET`）
+   - `BACKLOG_SPACE_URL` / `BACKLOG_LOGIN_ID` / `BACKLOG_PASSWORD` / `BACKLOG_TOTP_SECRET`（このスペースは2FA必須）
    - 任意: `SLACK_CHANNEL_ID`（既定 `C09CYQLNQNR`）, `SKIP_ON_HOLIDAY`
 2. その環境で **Slack MCP** が利用可能（`#sol-prj-iibc-op` へ投稿できる）こと。
 3. **ネットワークポリシー**が Backlog ドメイン（`*.backlog.com` / `*.backlog.jp`）と Slack への

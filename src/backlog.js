@@ -7,6 +7,8 @@ const crypto = require('crypto');
 // ─────────────────────────────────────────────────────────────────────────────
 // ⚠ スクレイピング実装メモ（要・実機検証）
 //   - Backlog の DOM はスペース/テーマ/バージョンで差異があります。
+//   - ログインは「標準 /login（1画面でID＋パスワード）→ 2要素認証(TOTP)コード入力」方式。
+//     TOTP は必須（BACKLOG_TOTP_SECRET）。
 //   - 本実装は「ログイン → /find/{PROJECT_KEY} の結果テーブルをヘッダー名から
 //     列を特定して各行を抽出」という、列順に依存しにくい方式を採用しています。
 //   - 初回は `node src/run.js morning --debug` で debug/ に HTML/スクショを保存し、
@@ -99,20 +101,32 @@ async function login(page, env, { debug } = {}) {
   if (submit) await submit.click();
   await page.waitForLoadState('networkidle', { timeout: env.navTimeoutMs }).catch(() => {});
 
-  // 2FA(TOTP) が要求された場合
-  const otpField = await trySelectors(page, [
+  // 2FA(TOTP): 標準ログインでは必須。パスワード送信後にコード入力画面へ遷移する。
+  // 画面遷移が非同期のことがあるため、OTP 欄の出現を明示的に待つ（最大10秒）。
+  const otpSelector = [
     'input[name="otp"]',
     'input[name="code"]',
+    'input[name="userOtp"]',
+    'input[name="oneTimePassword"]',
     'input#otp',
     'input[autocomplete="one-time-code"]',
-  ]);
+  ].join(', ');
+  await page
+    .waitForSelector(otpSelector, { timeout: Math.min(env.navTimeoutMs, 10000) })
+    .catch(() => {});
+  const otpField = await page.$(otpSelector);
   if (otpField) {
     if (!env.totpSecret) {
       if (debug) await dumpDebug(page, 'login-2fa-required');
       throw new Error('2要素認証が要求されましたが BACKLOG_TOTP_SECRET が未設定です');
     }
     await otpField.fill(totp(env.totpSecret));
-    const otpSubmit = await trySelectors(page, ['button[type="submit"]', 'button#login', 'input[type="submit"]']);
+    const otpSubmit = await trySelectors(page, [
+      'button[type="submit"]',
+      'button#login',
+      'input[type="submit"]',
+      'input#submit',
+    ]);
     if (otpSubmit) await otpSubmit.click();
     await page.waitForLoadState('networkidle', { timeout: env.navTimeoutMs }).catch(() => {});
   }
@@ -265,6 +279,9 @@ async function dumpDebug(page, name) {
 async function scrapeIssues(cfg, env, { debug = false } = {}) {
   if (!env.spaceUrl || !env.loginId || !env.password) {
     throw new Error('BACKLOG_SPACE_URL / BACKLOG_LOGIN_ID / BACKLOG_PASSWORD が未設定です（.env または環境変数を確認）');
+  }
+  if (!env.totpSecret) {
+    throw new Error('BACKLOG_TOTP_SECRET が未設定です（このスペースは2要素認証(TOTP)が有効のため必須です）');
   }
   const { chromium } = require('playwright');
   const browser = await chromium.launch({ headless: env.headless });
