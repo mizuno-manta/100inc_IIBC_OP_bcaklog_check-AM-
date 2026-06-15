@@ -3,8 +3,16 @@
 
   "slackChannelId": "C09CYQLNQNR",
 
-  "_comment_mentions": "朝/夕方の通知冒頭でメンションする Slack ユーザーID。<@U...> 形式で展開されます。下の _mentionCandidates から対象（5名）を選んで mentionUserIds に列挙してください。未設定だとメンションなしで送信。",
-  "mentionUserIds": [],
+  "_comment_mentions": "朝/夕方の通知冒頭でメンションする Slack ユーザーID。<@U...> 形式で展開されます。下の _mentionCandidates 参照。現在は全員を設定。",
+  "mentionUserIds": [
+    "U04SS1P1YBY",
+    "U02QC7GGY8P",
+    "U07SW0XH63Z",
+    "U04RMLC4XS6",
+    "U02TTUEAXL6",
+    "U0AHR1ZG74M",
+    "U050GS999PX"
+  ],
 
   "_mentionCandidates": {
     "100inc 羽鳥 歩波": "U04SS1P1YBY",
