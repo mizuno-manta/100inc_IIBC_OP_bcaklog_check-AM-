@@ -1,0 +1,21 @@
+{
+  "name": "iibc-backlog-deadline-alert",
+  "version": "1.0.0",
+  "description": "IIBC Backlog 期日アラート（朝/夕方）。Backlog をスクレイピングし、条件に合う課題を Slack 通知用ペイロードとして出力する。",
+  "type": "commonjs",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "morning": "node src/run.js morning",
+    "evening": "node src/run.js evening",
+    "test": "node test/run-tests.js",
+    "test:fixtures": "node src/run.js morning --from-fixture test/fixtures/issues.sample.json --dry-run"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "japanese-holidays": "^1.0.10",
+    "playwright": "1.56.1"
+  }
+}

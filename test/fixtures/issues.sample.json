@@ -1,0 +1,79 @@
+[
+  {
+    "projectKey": "100_REQUESTS",
+    "projectLabel": "100_REQUESTS",
+    "key": "100_REQUESTS-101",
+    "title": "メルマガ配信設定の修正",
+    "url": "https://example.backlog.com/view/100_REQUESTS-101",
+    "assignee": "桑野 彩花",
+    "status": "処理中",
+    "type": "運用代行（ページ作成・修正）",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "projectKey": "100_REQUESTS",
+    "projectLabel": "100_REQUESTS",
+    "key": "100_REQUESTS-102",
+    "title": "定例プロジェクト運用タスク（除外対象）",
+    "url": "https://example.backlog.com/view/100_REQUESTS-102",
+    "assignee": "桑野 彩花",
+    "status": "未対応",
+    "type": "プロジェクト運用",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "projectKey": "HUBS_CMS_TASK",
+    "projectLabel": "HUBS_CMS_TASK",
+    "key": "HUBS_CMS_TASK-201",
+    "title": "メール運用代行：HTMLメール作成",
+    "url": "https://example.backlog.com/view/HUBS_CMS_TASK-201",
+    "assignee": "100inc 阿部",
+    "status": "未対応",
+    "type": "メール運用代行",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "projectKey": "HUBS_CMS_TASK",
+    "projectLabel": "HUBS_CMS_TASK",
+    "key": "HUBS_CMS_TASK-202",
+    "title": "ページ作成（対象外の種別）",
+    "url": "https://example.backlog.com/view/HUBS_CMS_TASK-202",
+    "assignee": "桑野 彩花",
+    "status": "未対応",
+    "type": "ページ作成",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "projectKey": "100_REQUESTS",
+    "projectLabel": "100_REQUESTS",
+    "key": "100_REQUESTS-103",
+    "title": "翌営業日期日・外部担当者タスク",
+    "url": "https://example.backlog.com/view/100_REQUESTS-103",
+    "assignee": "外部 太郎",
+    "status": "処理中",
+    "type": "運用代行",
+    "dueDate": "2026-06-16"
+  },
+  {
+    "projectKey": "100_REQUESTS",
+    "projectLabel": "100_REQUESTS",
+    "key": "100_REQUESTS-104",
+    "title": "処理済みのため除外されるタスク",
+    "url": "https://example.backlog.com/view/100_REQUESTS-104",
+    "assignee": "桑野 彩花",
+    "status": "処理済み",
+    "type": "運用代行",
+    "dueDate": "2026-06-15"
+  },
+  {
+    "projectKey": "100_REQUESTS",
+    "projectLabel": "100_REQUESTS",
+    "key": "100_REQUESTS-105",
+    "title": "翌営業日期日・100incメンバータスク",
+    "url": "https://example.backlog.com/view/100_REQUESTS-105",
+    "assignee": "水野 信太郎",
+    "status": "未対応",
+    "type": "運用代行",
+    "dueDate": "2026-06-16"
+  }
+]

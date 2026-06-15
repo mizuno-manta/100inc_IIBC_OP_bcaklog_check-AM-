@@ -1,0 +1,58 @@
+{
+  "_comment": "IIBC Backlog 期日アラートの判定設定。コードを変えずにここで調整できます。",
+
+  "slackChannelId": "C09CYQLNQNR",
+
+  "_comment_mentions": "朝/夕方の通知冒頭でメンションする 5 名の Slack ユーザーID。<@U...> 形式で展開されます。値は実IDに置き換えてください（未設定だとメンションなしで送信）。",
+  "mentionUserIds": [],
+
+  "_comment_excludeStatuses": "取得はするが通知対象から除外するステータス。",
+  "excludeStatuses": ["処理済み", "完了"],
+
+  "_comment_fetchStatuses": "Backlog から取得するステータス。",
+  "fetchStatuses": ["未対応", "処理中", "処理済み"],
+
+  "_comment_members": "『本日期日』『夕方残タスク』で担当者を 100inc メンバーに絞り込むための名前リスト。Backlog の担当者表示名（表記ゆれ含む）を列挙。",
+  "incMemberNames": [
+    "100inc 羽鳥歩波",
+    "100inc 阿部",
+    "桑野 彩花",
+    "水野 信太郎",
+    "100inc 田嶋知世",
+    "田嶋 知世",
+    "小暮 祥子",
+    "笹岡 晴菜"
+  ],
+
+  "projects": [
+    {
+      "key": "HUBS_CMS_TASK",
+      "label": "HUBS_CMS_TASK",
+      "_comment_typeFilter": "allow = 指定した種別のみ対象。",
+      "typeFilter": {
+        "mode": "allow",
+        "types": ["Eメール配信", "メール運用代行", "ページ運用"]
+      }
+    },
+    {
+      "key": "100_REQUESTS",
+      "label": "100_REQUESTS",
+      "_comment_typeFilter": "deny = 指定した種別を除外し残りすべて対象。",
+      "typeFilter": {
+        "mode": "deny",
+        "types": ["プロジェクト運用"]
+      }
+    }
+  ],
+
+  "behavior": {
+    "_comment_memberFilterTodayMorning": "朝『本日期日』セクションで 100inc メンバーに絞るか。",
+    "memberFilterTodayMorning": true,
+    "_comment_memberFilterNextBusinessDay": "朝『翌営業日期日』セクションで 100inc メンバーに絞るか（仕様では全担当者対象=false）。",
+    "memberFilterNextBusinessDay": false,
+    "_comment_memberFilterEvening": "夕方『本日残タスク』で 100inc メンバーに絞るか。",
+    "memberFilterEvening": true,
+    "_comment_sendMorningWhenEmpty": "朝に該当 0 件でも送信するか。",
+    "sendMorningWhenEmpty": true
+  }
+}
