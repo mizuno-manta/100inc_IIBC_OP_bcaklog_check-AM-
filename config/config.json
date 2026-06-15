@@ -3,8 +3,18 @@
 
   "slackChannelId": "C09CYQLNQNR",
 
-  "_comment_mentions": "朝/夕方の通知冒頭でメンションする 5 名の Slack ユーザーID。<@U...> 形式で展開されます。値は実IDに置き換えてください（未設定だとメンションなしで送信）。",
+  "_comment_mentions": "朝/夕方の通知冒頭でメンションする Slack ユーザーID。<@U...> 形式で展開されます。下の _mentionCandidates から対象（5名）を選んで mentionUserIds に列挙してください。未設定だとメンションなしで送信。",
   "mentionUserIds": [],
+
+  "_mentionCandidates": {
+    "100inc 羽鳥 歩波": "U04SS1P1YBY",
+    "100inc 阿部 悠一": "U02QC7GGY8P",
+    "100inc 桑野 彩花": "U07SW0XH63Z",
+    "100inc 水野 信太郎": "U04RMLC4XS6",
+    "100inc 田嶋 知世": "U02TTUEAXL6",
+    "100inc 小暮 祥子": "U0AHR1ZG74M",
+    "笹岡 晴菜": "U050GS999PX"
+  },
 
   "_comment_excludeStatuses": "取得はするが通知対象から除外するステータス。",
   "excludeStatuses": ["処理済み", "完了"],
